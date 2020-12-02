@@ -1,7 +1,9 @@
-all_entries = []
-File.open('day_1_input.txt').each do |line|
-  all_entries << line.to_i
-end
+all_entries = File.read('day_1_input.txt').split("\n").map(&:to_i)
+
+# all_entries = []
+# File.open('day_1_input.txt').each do |line|
+#   all_entries << line.to_i
+# end
 
 # should output two lines (doublecheck)
 all_entries.each do |e|
