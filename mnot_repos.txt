@@ -6,3 +6,4 @@ https://github.com/n9iels/advent-of-code-2020
 https://github.com/YorickBleijenberg/AdventOfCode2020
 https://github.com/bdewater/adventofcode
 https://github.com/bernardkroes/advent_of_code_2020
+https://github.com/shoop/aoc2020
