@@ -1,0 +1,4 @@
+https://github.com/bernardkroes/advent_of_code_2020
+https://github.com/jdongelmans/aoc2020
+https://github.com/arjankruithof/adventofcode 
+
