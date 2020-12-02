@@ -1,7 +1,4 @@
-all_password_lines = []
-File.open('day_2_input.txt').each do |line|
-  all_password_lines << line
-end
+all_password_lines = File.read('day_2_input.txt').split("\n")
 
 # part 1
 the_valid_count = 0
