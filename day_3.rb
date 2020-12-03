@@ -16,12 +16,12 @@ class TreeMap
   end
 
   # always starting from 0, 0 for now
-  def count_trees_for_step(in_step_x, in_step_y)
+  def count_trees_for_trajectory(in_step_x, in_step_y)
     the_x, the_y = 0, 0
 
     the_tree_count = 0
     while the_y < @size_y do
-      the_tree_count += 1 if self.contains_tree?(the_x, the_y)
+      the_tree_count += 1 if contains_tree?(the_x, the_y)
       the_x += in_step_x
       the_y += in_step_y
     end
@@ -35,7 +35,7 @@ end
 # the_map = TreeMap.new('day_3_test_input.txt')
 the_map = TreeMap.new('day_3_input.txt')
 
-puts the_map.count_trees_for_step(3,1)
+puts the_map.count_trees_for_trajectory(3,1)
 
 #part 2
 
@@ -44,6 +44,6 @@ the_steps_y = [1, 1, 1, 1, 2]
 
 the_total_multiplied = 1
 0.upto(4) do |i|
-  the_total_multiplied *= the_map.count_trees_for_step(the_steps_x[i], the_steps_y[i])
+  the_total_multiplied *= the_map.count_trees_for_trajectory(the_steps_x[i], the_steps_y[i])
 end
 puts the_total_multiplied
