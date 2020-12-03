@@ -12,7 +12,7 @@ class TreeMap
   end
 
   def contains_tree?(in_x, in_y)
-    return @tree_map[in_y][in_x % @size_x] == "#"
+    @tree_map[in_y][in_x % @size_x] == "#"
   end
 
   # always starting from 0, 0 for now
@@ -25,7 +25,7 @@ class TreeMap
       the_x += in_step_x
       the_y += in_step_y
     end
-    return the_tree_count
+    the_tree_count
   end
 
 end
