@@ -1,8 +1,10 @@
-# shorter, using to_i and base 2
 def boardingpass_to_seat_id(line)
-  row = line[0..6].tr("BF","10").to_i(2)
-  col = line[7..9].tr("RL","10").to_i(2)
-  row * 8 + col
+#  row = line[0..6].tr("BF","10").to_i(2)
+#  col = line[7..9].tr("RL","10").to_i(2)
+#  row * 8 + col
+
+# or just:
+  line.tr("BFRL","1010").to_i(2)
 end
 
 puts boardingpass_to_seat_id("FBFBBFFRLR")
