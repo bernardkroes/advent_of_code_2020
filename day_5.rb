@@ -1,7 +1,7 @@
 # shorter, using to_i and base 2
 def boardingpass_to_seat_id(line)
-  row = line[0..6].gsub("B", "1").gsub("F","0").to_i(2)
-  col = line[7..9].gsub("R", "1").gsub("L","0").to_i(2)
+  row = line[0..6].tr("BF","10").to_i(2)
+  col = line[7..9].tr("RL","10").to_i(2)
   row * 8 + col
 end
 
