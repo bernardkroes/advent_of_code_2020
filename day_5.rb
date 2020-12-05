@@ -16,7 +16,7 @@ all_seat_ids = File.read('day_5_input.txt').split("\n").map{ |line| boardingpass
 puts "Max: #{all_seat_ids.max}"
 
 # part 2
-all_seat_ids.sort.each do |seat_id|
+all_seat_ids.each do |seat_id|
   if !all_seat_ids.include?(seat_id + 1) && all_seat_ids.include?(seat_id + 2)
     puts "Empty seat: #{seat_id + 1}"
   end
