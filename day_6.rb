@@ -1,11 +1,11 @@
 def anyone_answer_count_for_group(answer_lines)
-  answer_lines.gsub("\n","").split("").uniq.count
+  answer_lines.gsub("\n","").chars.uniq.count
 end
 
 def everyone_answer_count_for_group(answer_lines)
-  the_answer_set = "abcdefghijklmnopqrstuvwxyz".split("")
+  the_answer_set = "abcdefghijklmnopqrstuvwxyz".chars
   answer_lines.split("\n").each do |line|
-    the_answer_set = the_answer_set & line.split("")
+    the_answer_set = the_answer_set & line.chars
   end
   the_answer_set.count
 end
