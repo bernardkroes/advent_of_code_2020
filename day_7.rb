@@ -20,7 +20,7 @@ puts colors_that_contain(rules, "shiny gold", []).uniq.size
 # part 2, count all contained bags
 # new 'rules' needed
 
-rules = {}
+rules = Hash.new([])
 all_lines = File.read('day_7_input.txt').split("\n")
 all_lines.each do |rule|
   the_color, the_contents = rule.split(" bags contain ")
@@ -37,12 +37,9 @@ end
 
 def count_bags_contained_for(rules, in_color)
   the_count = 0
-  the_contents = rules[in_color]
-  if the_contents
-    the_contents.each do |color, rule_count|
-      the_count += rule_count
-      the_count += rule_count * count_bags_contained_for(rules, color)
-    end
+  rules[in_color].each do |color, rule_count|
+    the_count += rule_count
+    the_count += rule_count * count_bags_contained_for(rules, color)
   end
   the_count
 end
