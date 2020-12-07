@@ -36,14 +36,15 @@ all_lines.each do |rule|
 end
 
 def count_bags_contained_for(rules, in_color)
-  the_count = 1
+  the_count = 0
   the_contents = rules[in_color]
   if the_contents
     the_contents.each do |color, rule_count|
+      the_count += rule_count
       the_count += rule_count * count_bags_contained_for(rules, color)
     end
   end
   the_count
 end
 
-puts count_bags_contained_for(rules, "shiny gold") - 1 # subtract our nr 1 bag
+puts count_bags_contained_for(rules, "shiny gold") # subtract our nr 1 bag
