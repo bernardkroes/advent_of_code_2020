@@ -47,4 +47,4 @@ def count_bags_contained_for(rules, in_color)
   the_count
 end
 
-puts count_bags_contained_for(rules, "shiny gold") # subtract our nr 1 bag
+puts count_bags_contained_for(rules, "shiny gold")
