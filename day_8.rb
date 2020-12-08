@@ -6,8 +6,8 @@ class Instruction
     self.argument = in_argument.to_i
   end
 
-  # return delta_setp: the number of steps to the next line
-  def execute(in_comp_state) # an array with currently only the accumulator at index 0
+  # returns next_delta_step: the number of steps to the next line
+  def execute(in_comp_state) # in_comp_state: an array with currently only the accumulator at index 0
     the_next_delta_step = 1
     case self.operation
     when "acc"
@@ -76,7 +76,7 @@ class OpcodeComp
         the_toggle_index += 1 while !self.instructions[the_toggle_index].can_be_toggled?
         self.instructions[the_toggle_index].toggle!
       end
-      if self.current_line >= self.instructions.size || self.current_line <0
+      if self.current_line >= self.instructions.size || self.current_line < 0
         puts "Program terminated: Accumulator = #{self.accumulator[0]}"
         exit
       end
@@ -86,10 +86,7 @@ class OpcodeComp
   end
 end
 
-#part 1
+# part 2
 the_opcode_program = OpcodeComp.new('day_8_input.txt')
-# the_console.run
-
-#part 2
 the_opcode_program.run
 
