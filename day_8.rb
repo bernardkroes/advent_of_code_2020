@@ -26,9 +26,8 @@ class Instruction
   end
 
   def toggle!
-    if can_be_toggled?
-      self.operation = (self.operation == "jmp" ? "nop" : "jmp")
-    end
+    return if !can_be_toggled?
+    self.operation = (self.operation == "jmp" ? "nop" : "jmp")
   end
 
   def can_be_toggled?
@@ -41,8 +40,8 @@ class Instruction
 end
 
 class OpcodeComp
-  attr_reader :accumulator, :instructions, :current_line, :lines_executed
-  attr_writer :accumulator, :instructions, :current_line, :lines_executed
+  attr_reader :comp_state, :instructions, :current_line, :lines_executed
+  attr_writer :comp_state, :instructions, :current_line, :lines_executed
 
   def initialize(in_filename)
     reset_state
@@ -55,7 +54,7 @@ class OpcodeComp
   end
 
   def reset_state
-    self.accumulator = [0]
+    self.comp_state = [0] # array with just the accumulator for now
     self.current_line = 0
     self.lines_executed = []
   end
@@ -77,11 +76,11 @@ class OpcodeComp
         self.instructions[the_toggle_index].toggle!
       end
       if self.current_line >= self.instructions.size || self.current_line < 0
-        puts "Program terminated: Accumulator = #{self.accumulator[0]}"
+        puts "Program terminated: Accumulator = #{self.comp_state[0]}"
         exit
       end
       self.lines_executed << self.current_line
-      self.current_line += self.instructions[self.current_line].execute(self.accumulator)
+      self.current_line += self.instructions[self.current_line].execute(self.comp_state)
     end
   end
 end
