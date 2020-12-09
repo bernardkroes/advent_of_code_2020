@@ -18,7 +18,7 @@ all_numbers[preamble..-1].each_with_index do |the_num, i|
 end
 
 # part 2
-all_numbers.each_with_index do |the_num, i|
+all_numbers.each_with_index do |the_num, i| # the_num is not used, btw
   the_sum = 0
   the_walk_index = 0
   while the_sum < the_invalid_num
