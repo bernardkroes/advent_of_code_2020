@@ -25,7 +25,7 @@ all_numbers.each_with_index do |the_num, i| # the_num is not used, btw
     the_sum += all_numbers[i + the_walk_index]
     the_walk_index += 1
   end
-  if the_sum == the_invalid_num
+  if (the_sum == the_invalid_num) && (the_walk_index > 1)
     the_sub_array = all_numbers[i..(i + the_walk_index - 1)]
     the_min = the_sub_array.min
     the_max = the_sub_array.max
