@@ -11,7 +11,7 @@ def move(the_x, the_y, in_direction, arg)
 end
 
 the_x, the_y = 0, 0
-the_current_move = 2 # index in DELTA_MOVES
+the_dir = 2 # index in DELTA_MOVES
 the_lines.each do |line|
   ins = line[0]
   arg = line[1..-1].to_i
@@ -26,13 +26,13 @@ the_lines.each do |line|
   when "W"
     the_x, the_y = move(the_x, the_y, WEST, arg)
   when "L"
-    the_current_move -= (arg / 90)
-    the_current_move = the_current_move % 4
+    the_dir -= (arg / 90)
+    the_dir = the_dir % 4
   when "R"
-    the_current_move += (arg / 90)
-    the_current_move = the_current_move % 4
+    the_dir += (arg / 90)
+    the_dir = the_dir % 4
   when "F"
-    the_x, the_y = move(the_x, the_y, the_current_move, arg)
+    the_x, the_y = move(the_x, the_y, the_dir, arg)
   end
 end
 
@@ -77,7 +77,3 @@ puts "the_y: #{the_y}"
 puts "waypoint_x: #{waypoint_x}"
 puts "waypoint_y: #{waypoint_y}"
 puts the_x.abs + the_y.abs
-
-__END__
-
-Not correct: 9867
