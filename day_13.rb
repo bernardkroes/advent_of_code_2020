@@ -18,15 +18,15 @@ puts "min_wait: #{min_wait} * #{min_bus} = #{min_wait * min_bus}"
 
 #part 2
 the_busses = lines[1].split(",").map(&:to_i)
-the_delta_index = the_busses[0]
-the_step_size = the_busses[0].lcm(the_busses[the_busses[0]]) # the_step_size = the_busses[0] # is also fast enough when we sieve
-found_steps = [the_busses[0], the_busses[the_busses[0]]]     # found_steps = [the_busses[0]]
+first_bus = the_busses[0]
+the_step_size = first_bus
+found_steps = [first_bus]
 
 the_bus_index_pairs = Array([])
 the_busses.each_with_index do |bus, i|
   the_bus_index_pairs << [bus, i] if bus > 0
 end
-the_bus_index_pairs = the_bus_index_pairs.sort.reverse
+# the_bus_index_pairs = the_bus_index_pairs.sort.reverse
 
 the_start_min = 0
 is_valid = false
@@ -34,12 +34,12 @@ while !is_valid
   the_start_min += the_step_size
   is_valid = true
   the_bus_index_pairs.each do |pair|
-    if (the_start_min + pair[1] - the_delta_index) % pair[0] != 0
+    if (the_start_min + pair[1]) % pair[0] != 0
       is_valid = false
       break
     else
       # extend the sieve, it is fast
-      if !found_steps.include?(pair[0]) 
+      if !found_steps.include?(pair[0])
         found_steps << pair[0]
         the_step_size *= pair[0]
       end
@@ -48,4 +48,4 @@ while !is_valid
 end
 
 puts "=" * 100
-puts the_start_min - the_delta_index
+puts the_start_min
