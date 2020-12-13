@@ -38,7 +38,8 @@ while !is_valid
       is_valid = false
       break
     else
-      if !found_steps.include?(pair[0])
+      # extend the sieve, it is fast
+      if !found_steps.include?(pair[0]) 
         found_steps << pair[0]
         the_step_size *= pair[0]
       end
