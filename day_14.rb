@@ -9,7 +9,7 @@ def apply_mask_to(val, mask)
   binstr.chars.each_with_index do |c, i|
     outstr += (mask[i] == "X" ? c : mask[i])
   end
-  val = outstr.to_i(2)
+  outstr.to_i(2)
 end
 
 mem = {}
