@@ -11,3 +11,4 @@ https://github.com/BasLangenberg/aoc
 https://www.dropbox.com/sh/aer8wkdp6bl9luf/AACVFD3eEt_5hmktfCDafGwva?dl=0
 https://github.com/msturm/aoc2020
 https://github.com/timwienk/advent-of-code
+https://github.com/decentaur/advent_of_code
