@@ -34,7 +34,6 @@ def is_in_any_range?(val, rr)
   rr.any? { |r| val >= r[0] && val <= r[1] }
 end
 
-
 def is_in_any_range_with_hash?(val, ranges_hash)
   ranges_hash.any? { |k, rr| is_in_any_range?(val, rr) }
 end
